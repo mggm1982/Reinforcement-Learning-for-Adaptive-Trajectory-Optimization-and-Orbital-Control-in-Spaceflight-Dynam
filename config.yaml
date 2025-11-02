@@ -1,0 +1,15 @@
+# === Meta-RL PPO Config ===
+meta_epochs: 8         # number of meta-learning epochs (outer loop)
+inner_steps: 300000     # starting steps per task per epoch
+n_envs: 6               # fewer parallel envs → longer rollouts per env
+learning_rate: 3e-4     # standard PPO rate
+gamma: 0.995            # longer horizon discount
+batch_size: 1024        # larger minibatch improves PPO stability
+ent_coef: 0.001         # smaller entropy encourages convergence
+clip_range: 0.2         # PPO clipping range
+n_steps: 8192           # rollout length per PPO update (used internally)
+n_epochs: 20            # number of gradient passes per PPO update
+
+# === Environment parameters ===
+dt: 2.0                 # simulation timestep (seconds)
+max_steps: 5000         # max steps per episode
